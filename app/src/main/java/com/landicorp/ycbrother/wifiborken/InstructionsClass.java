@@ -20,7 +20,7 @@ public class InstructionsClass extends Activity {
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                         .setDefaultFontPath("fonts/Lato-Light.ttf")
                         .setFontAttrId(R.attr.fontPath)
-                         .build()
+                        .build()
         );
 
         
