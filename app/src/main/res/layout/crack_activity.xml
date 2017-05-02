@@ -63,7 +63,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Passwords Tried"
-            android:id="@+id/textView5"
             android:textColor="#ffffff"
             android:layout_below="@+id/passwords"
             android:layout_centerHorizontal="true" />
@@ -88,7 +87,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Start"
-            android:id="@+id/button"
             android:layout_gravity="center_horizontal"
             android:onClick="onCrackStart"
             android:layout_weight="1"
@@ -99,7 +97,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Stop"
-            android:id="@+id/button2"
             android:layout_gravity="center_horizontal"
             android:onClick="stop"
             android:layout_weight="1"

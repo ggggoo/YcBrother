@@ -7,7 +7,6 @@
     android:layout_height="wrap_content"
     android:text="New Text"
     tools:ignore="MissingPrefix"
-    android:id="@+id/textView2"
     android:layout_gravity="center_horizontal"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:textColor="#ffffff"
