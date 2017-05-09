@@ -51,7 +51,7 @@ public class CrackActivity extends Activity {
         );
 
 
-        setContentView(R.layout.crack_activity);
+        setContentView(R.layout.activity_crack_wifi);
 
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
@@ -201,8 +201,6 @@ public class CrackActivity extends Activity {
     }
 
     public static class myBroadcast extends BroadcastReceiver {
-
-
 
         @Override
         public void onReceive(Context context, Intent intent) {

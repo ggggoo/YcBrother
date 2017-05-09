@@ -9,11 +9,8 @@
     </style>
 
 
-
     <style name="TextAppearance.FontPath" parent="android:TextAppearance">
         <!-- Custom Attr-->
         <item name="fontPath">fonts/Lato-Light.ttf</item>
     </style>
-
-
 </resources>

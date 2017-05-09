@@ -46,8 +46,7 @@ public class MainActivity extends Activity {
                         .build()
         );
 
-        setContentView(R.layout.activity_main2);
-
+        setContentView(R.layout.activity_wifi_broken);
 
         WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
         List<ScanResult> networkList = wifi.getScanResults();
@@ -59,7 +58,6 @@ public class MainActivity extends Activity {
             System.out.println(network.SSID + " capabilities : " + Capabilities);
 
         }
-
 
         WifiManager wifiManager2 = (WifiManager)this.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         if(wifiManager2.isWifiEnabled() == false) {
@@ -131,8 +129,6 @@ public class MainActivity extends Activity {
 
 
     }
-
-
 
     class WifiReceiver extends BroadcastReceiver {
         public void onReceive(Context c, Intent intent) {

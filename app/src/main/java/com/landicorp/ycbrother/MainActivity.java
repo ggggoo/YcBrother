@@ -9,6 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.landicorp.ycbrother.SMS.QueryMovieTool;
+import com.landicorp.ycbrother.SMS.SMSTool;
+import com.orhanobut.logger.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Logger.init("Yang")
+                .methodCount(3)    // 方法栈打印的个数，默认是 2
+                .hideThreadInfo(); // 隐藏线程信息，默认显示
+//                .methodOffset(2);
         initView();
     }
 
@@ -37,12 +45,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent();
-                 switch (i){
-                     case 0:
+                switch (i) {
+                    case 0:
                         intent.setClass(MainActivity.this, com.landicorp.ycbrother.wifiborken.MainActivity.class);
-                         break;
-                 }
-                startActivity(intent);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        intent.setClass(MainActivity.this, com.landicorp.ycbrother.floatingBall.FloatingBallActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 2:
+                        SMSTool smsTool = new SMSTool(getBaseContext());
+                        smsTool.startSMS();
+                        break;
+                    case 3:
+                        QueryMovieTool.queryMovieReal();
+                        break;
+                }
+//                startActivity(intent);
             }
         };
         return listener;
@@ -50,5 +70,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setListMenu() {
         listValue.add("1、wifi暴力破解");
+        listValue.add("2、滑动悬浮球");
+        listValue.add("3、短信验证码");
+        listValue.add("4、查票房");
     }
 }
