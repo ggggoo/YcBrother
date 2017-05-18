@@ -1,4 +1,4 @@
-package com.landicorp.ycbrother.SMS;
+package com.landicorp.ycbrother.sms;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;

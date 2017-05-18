@@ -2,15 +2,17 @@ package com.landicorp.ycbrother;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
-import com.landicorp.ycbrother.SMS.QueryMovieTool;
-import com.landicorp.ycbrother.SMS.SMSTool;
+import com.landicorp.ycbrother.sms.QueryMovieTool;
+import com.landicorp.ycbrother.sms.SMSTool;
 import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case 1:
-                        intent.setClass(MainActivity.this, com.landicorp.ycbrother.floatingBall.FloatingBallActivity.class);
+                        intent.setClass(MainActivity.this, com.landicorp.ycbrother.floatingball.FloatingBallActivity.class);
                         startActivity(intent);
                         break;
                     case 2:
@@ -59,7 +61,22 @@ public class MainActivity extends AppCompatActivity {
                         smsTool.startSMS();
                         break;
                     case 3:
-                        QueryMovieTool.queryMovieReal();
+                        QueryMovieTool.queryMovieReal(getBaseContext(), new QueryMovieTool.queryMovieListener() {
+                            @Override
+                            public void onResult(String result) {
+                                Looper.prepare();
+                                Toast.makeText(getBaseContext(),result,Toast.LENGTH_LONG).show();
+                                Looper.loop();
+                            }
+                        });
+                        break;
+                    case 4:
+                        intent.setClass(MainActivity.this, com.landicorp.ycbrother.mvp.v_main.class);
+                        startActivity(intent);
+                        break;
+                    case 5:
+                        intent.setClass(MainActivity.this, com.landicorp.ycbrother.stepcount.StepCountActivity.class);
+                        startActivity(intent);
                         break;
                 }
 //                startActivity(intent);
@@ -73,5 +90,7 @@ public class MainActivity extends AppCompatActivity {
         listValue.add("2、滑动悬浮球");
         listValue.add("3、短信验证码");
         listValue.add("4、查票房");
+        listValue.add("5、Android MVP");
+        listValue.add("6、计步");
     }
 }

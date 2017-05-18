@@ -1,4 +1,4 @@
-package com.landicorp.ycbrother.floatingBall;
+package com.landicorp.ycbrother.floatingball;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;

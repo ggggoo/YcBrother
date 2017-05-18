@@ -1,4 +1,4 @@
-package com.landicorp.ycbrother.floatingBall;
+package com.landicorp.ycbrother.floatingball;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import com.landicorp.ycbrother.R;
 
 public class FloatingBallActivity extends Activity{
 
-    private FloatingBall mFloatingBall;
+    private com.landicorp.ycbrother.floatingball.FloatingBall mFloatingBall;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +22,7 @@ public class FloatingBallActivity extends Activity{
     }
 
     private void init() {
-        mFloatingBall = (FloatingBall) findViewById(R.id.group);
+        mFloatingBall = (com.landicorp.ycbrother.floatingball.FloatingBall) findViewById(R.id.group);
         mFloatingBall.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {

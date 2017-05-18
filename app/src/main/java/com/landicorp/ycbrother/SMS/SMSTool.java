@@ -1,4 +1,4 @@
-package com.landicorp.ycbrother.SMS;
+package com.landicorp.ycbrother.sms;
 
 import android.content.Context;
 

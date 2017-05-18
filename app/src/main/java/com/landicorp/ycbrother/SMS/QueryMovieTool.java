@@ -1,4 +1,6 @@
-package com.landicorp.ycbrother.SMS;
+package com.landicorp.ycbrother.sms;
+
+import android.content.Context;
 
 import com.orhanobut.logger.Logger;
 
@@ -16,7 +18,7 @@ public class QueryMovieTool {
 
     }
 
-    public static void queryMovieReal(){
+    public static void queryMovieReal(final Context context, final queryMovieListener listener){
 
         new Thread(new Runnable() {
             @Override
@@ -30,7 +32,7 @@ public class QueryMovieTool {
                     mobClient.addParam("area","CN");
                     String result = mobClient.post();
                     Logger.d(result);
-
+                    listener.onResult(result);
                 } catch (KeyManagementException e) {
                     e.printStackTrace();
                 } catch (NoSuchAlgorithmException e) {
@@ -42,9 +44,9 @@ public class QueryMovieTool {
                 }
             }
         }).start();
+    }
 
-
-
-
+    public interface queryMovieListener{
+        void onResult(String result);
     }
 }
