@@ -51,7 +51,7 @@ public class FloatingBall extends RadioGroup {
         super(context);
     }
 
-    public FloatingBall(Context context, AttributeSet attrs){
+    public FloatingBall(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
@@ -89,7 +89,7 @@ public class FloatingBall extends RadioGroup {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-         switch (event.getAction()) {
+        switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 setAlpha(1f);
                 countDownTimer.cancel();

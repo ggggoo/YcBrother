@@ -65,7 +65,7 @@ public class SMSTool {
         registerPage.show(mContext);
     }
 
-    public void unRegister(){
+    private void unRegister(){
         SMSSDK.unregisterEventHandler(eventHandler);
     }
 }

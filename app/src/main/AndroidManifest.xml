@@ -53,6 +53,10 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity android:name=".stepcount.StepCountActivity" />
+        <activity android:name=".timecount.TimeCountActivity" />
+        <activity android:name=".passwordedit.PswEditActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".numberrunning.NumberRunningActivity" />
 
         <service
             android:name=".stepcount.StepService"

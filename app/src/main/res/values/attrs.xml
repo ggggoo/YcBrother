@@ -6,4 +6,30 @@
         <attr name="moveable" format="boolean"/>
         <attr name="autoBack" format="boolean"/>
     </declare-styleable>
+
+    <declare-styleable name="PayPsdInputView">
+
+        <attr name="maxCount" format="integer" />
+        <attr name="circleColor" format="color" />
+        <attr name="bottomLineColor" format="color" />
+        <attr name="radius" format="dimension" />
+        <attr name="divideLineWidth" format="dimension" />
+        <attr name="divideLineColor" format="color" />
+        <attr name="rectAngle" format="dimension" />
+        <attr name="psdType" format="enum">
+            <enum name="weChat" value="0" />
+            <enum name="bottomLine" value="1" />
+        </attr>
+    </declare-styleable>
+    
+    <declare-styleable name="NumberRunning">
+        <attr name="frameNum" format="integer"></attr>
+        <attr name="textType">
+            <enum name="money" value="0"></enum>
+            <enum name="num" value="1"></enum>
+        </attr>
+        <attr name="useComaFormat" format="boolean"></attr>
+        <attr name="runWhrnChange" format="boolean"></attr>
+    </declare-styleable>
+
 </resources>

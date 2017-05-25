@@ -78,6 +78,18 @@ public class MainActivity extends AppCompatActivity {
                         intent.setClass(MainActivity.this, com.landicorp.ycbrother.stepcount.StepCountActivity.class);
                         startActivity(intent);
                         break;
+                    case 6:
+                        intent.setClass(MainActivity.this, com.landicorp.ycbrother.timecount.TimeCountActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 7:
+                        intent.setClass(MainActivity.this, com.landicorp.ycbrother.passwordedit.PswEditActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 8:
+                        intent.setClass(MainActivity.this, com.landicorp.ycbrother.numberrunning.NumberRunningActivity.class);
+                        startActivity(intent);
+                        break;
                 }
 //                startActivity(intent);
             }
@@ -92,5 +104,8 @@ public class MainActivity extends AppCompatActivity {
         listValue.add("4、查票房");
         listValue.add("5、Android MVP");
         listValue.add("6、计步");
+        listValue.add("7、倒计时");
+        listValue.add("8、密码输入框");
+        listValue.add("9、滚动数字");
     }
 }
