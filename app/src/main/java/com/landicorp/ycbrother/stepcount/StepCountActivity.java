@@ -53,6 +53,7 @@ public class StepCountActivity extends AppCompatActivity implements Handler.Call
             @Override
             public void onClick(View view) {
                 if(isSupportStepCountSensor(getBaseContext())){
+                    Logger.d("支持计步");
                     setupService();
                 }else{
                     Logger.d("不支持计步");
@@ -104,7 +105,7 @@ public class StepCountActivity extends AppCompatActivity implements Handler.Call
     @Override
     public boolean handleMessage(Message msg) {
         switch (msg.what) {
-            case 1:
+            default:
                 tvStep.setText(msg.getData().getInt("step")+"步");
                 Log.e("步数为", "handleMessage: "+msg.getData().getInt("step") );
                 break;

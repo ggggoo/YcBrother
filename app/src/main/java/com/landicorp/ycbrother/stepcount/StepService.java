@@ -15,6 +15,8 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
 
+import com.orhanobut.logger.Logger;
+
 /**
  * Created by 杨大哥 on 2017/5/15.
  */
@@ -24,7 +26,7 @@ public class StepService extends Service implements SensorEventListener {
     private SensorManager sensorManager;
     private static int stepSensor = -1;
     private boolean hasRecord = false;
-    private int CURRENT_SETP = 0;
+    private int CURRENT_STEP = 0;
     private int hasStepCount = 0;
     private int previousStepCount = 0;
     private Messenger messenger = new Messenger(new MessenerHandler());
@@ -49,6 +51,7 @@ public class StepService extends Service implements SensorEventListener {
         sensorManager = (SensorManager) this.getSystemService(SENSOR_SERVICE);
         int VERSION_CODE = Build.VERSION.SDK_INT;
         if (VERSION_CODE >= 19) {
+            Logger.d("版本号"+VERSION_CODE);
             addCountStepListener();
         }
     }
@@ -78,12 +81,12 @@ public class StepService extends Service implements SensorEventListener {
                 hasStepCount = tempStep;
             } else {
                 int thisStepCount = tempStep - hasStepCount;
-                CURRENT_SETP += (thisStepCount - previousStepCount);
+                CURRENT_STEP += (thisStepCount - previousStepCount);
                 previousStepCount = thisStepCount;
             }
         } else if (stepSensor == 1) {
             if (sensorEvent.values[0] == 1.0) {
-                CURRENT_SETP++;
+                CURRENT_STEP++;
             }
         }
     }
@@ -98,11 +101,12 @@ public class StepService extends Service implements SensorEventListener {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 0:
+                case 1:
                     try {
                         Messenger messenger = msg.replyTo;
                         Message replyMsg = Message.obtain(null, 1);
                         Bundle bundle = new Bundle();
-                        bundle.putInt("step", CURRENT_SETP);
+                        bundle.putInt("step", CURRENT_STEP);
                         replyMsg.setData(bundle);
                         messenger.send(replyMsg);
                     } catch (RemoteException e) {
