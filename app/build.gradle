@@ -17,6 +17,27 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+    }
+
+//    signingConfigs {
+//        release {
+//            storeFile file('yangchen.jks')
+//            storePassword 'landi654321'
+//            keyAlias 'yang'
+//            keyPassword 'landi654321'
+//        }
+//        debug{
+//            storeFile file('yangchen.jks')
+//            storePassword 'landi654321'
+//            keyAlias 'yang'
+//            keyPassword 'landi654321'
+//        }
+//    }
 }
 
 repositories{
@@ -26,21 +47,20 @@ repositories{
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.2.0'
     testCompile 'junit:junit:4.12'
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
-    compile name:'SMSSDK-2.1.4',ext:'aar'
-    compile name:'SMSSDKGUI-2.1.4',ext:'aar'
+    compile name: 'SMSSDK-2.1.4', ext: 'aar'
+    compile name: 'SMSSDKGUI-2.1.4', ext: 'aar'
     compile 'com.orhanobut:logger:1.15'
-
     //RxJava
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'io.reactivex.rxjava2:rxjava:2.1.0'
-
+    compile files('libs/baidumapapi_base_v4_3_1.jar')
 }
 
 

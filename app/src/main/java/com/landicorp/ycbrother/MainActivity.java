@@ -11,6 +11,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.landicorp.ycbrother.sms.QueryMovieTool;
 import com.landicorp.ycbrother.sms.SMSTool;
 import com.orhanobut.logger.Logger;
@@ -26,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_main);
+
         Logger.init("Yang")
                 .methodCount(3)    // 方法栈打印的个数，默认是 2
                 .hideThreadInfo(); // 隐藏线程信息，默认显示
@@ -90,6 +93,10 @@ public class MainActivity extends AppCompatActivity {
                         intent.setClass(MainActivity.this, com.landicorp.ycbrother.numberrunning.NumberRunningActivity.class);
                         startActivity(intent);
                         break;
+                    case 9:
+                        intent.setClass(MainActivity.this, com.landicorp.ycbrother.baidumap.RoutePlanDemo.class);
+                        startActivity(intent);
+                        break;
                 }
 //                startActivity(intent);
             }
@@ -107,5 +114,6 @@ public class MainActivity extends AppCompatActivity {
         listValue.add("7、倒计时");
         listValue.add("8、密码输入框");
         listValue.add("9、滚动数字");
+        listValue.add("10、百度地图");
     }
 }
